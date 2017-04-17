@@ -6,13 +6,14 @@ file = "test.xml"
 full_path = os.path.abspath(os.path.join('data',file))
 print(full_path)
 
+#defination for getting the some of all prices
 def total(A):
     result = 0
     for i in A:
         result = result + i
         
     return result
-
+#parsing the data
 data = ElementTree.parse('test.xml')
 catalog = data.findtext('catalog')
 book = data.findall('book')
@@ -22,6 +23,7 @@ book1 = data1.getElementsByTagName('book')
 
 prices = []
 for i,j in zip(book,book1):
+ #getting the id attribute
     id1 = j.attributes["id"].value
     author = i.find('author').text
     price = i.find('price').text
