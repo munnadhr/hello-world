@@ -1,7 +1,19 @@
+#method 1
+import xml.etree.cElementTree as ET
 
+tree = ET.ElementTree(file='test.xml')
+root = tree.getroot()
+
+for child in root:
+    if (child.tag=='book'):
+        print(child.get('id'))
+
+#method 2
 import os
 from xml.etree import ElementTree
 from xml.dom import minidom
+
+        
 file = "test.xml"
 full_path = os.path.abspath(os.path.join('data',file))
 print(full_path)
